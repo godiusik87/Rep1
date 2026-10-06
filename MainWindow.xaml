@@ -1,0 +1,51 @@
+﻿<Window x:Class="DetMir.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DetMir"
+        Icon="C:\Детский Мир\DetMir\Resource\icon.ico"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Верхняя панель -->
+        <StackPanel Grid.Row="0" Background="#A5E887" Orientation="Horizontal">
+            <Image Source="C:\Детский Мир\DetMir\Resource\logo.png"
+                   HorizontalAlignment="Left" Margin="45,0,0,0"/>
+            <TextBlock Text="ООО Детский Мир" FontSize="25"
+                       FontFamily="Candara" Margin="120,0,0,0"
+                       VerticalAlignment="Center"/>
+            <Button x:Name="BtnBack" Content="Назад"
+                    Margin="140,0,0,0"
+                    Style="{StaticResource mainbtn}"
+                    Click="BtnBack_Click"/>
+        </StackPanel>
+
+        <!-- Фон с логотипом -->
+        <StackPanel Grid.Row="1" VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <Image Source="C:\Детский Мир\DetMir\Resource\logo.png"
+                   Opacity="0.2" Width="300"/>
+        </StackPanel>
+
+        <!-- Главный Frame — ОДИН -->
+        <Frame x:Name="FrmMain"
+               Grid.Row="1"
+               NavigationUIVisibility="Hidden"
+               ContentRendered="FrmMain_ContentRendered"/>
+
+        <!-- Нижняя панель -->
+        <StackPanel Grid.Row="2" Background="#A5E887" Orientation="Horizontal">
+            <Button x:Name="BtnExit" Content="Выход"
+                    Margin="600,0,0,0"
+                    Style="{StaticResource mainbtn}"
+                    Click="BtnExit_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

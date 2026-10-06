@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DetMir", "DetMir.csproj", "{2559F495-DB56-4AF5-A70C-9C2B39CB9FEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "..\ClassLibrary1\ClassLibrary1.csproj", "{DADF476A-658C-478A-9EBC-A88EC46B12B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2559F495-DB56-4AF5-A70C-9C2B39CB9FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2559F495-DB56-4AF5-A70C-9C2B39CB9FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2559F495-DB56-4AF5-A70C-9C2B39CB9FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2559F495-DB56-4AF5-A70C-9C2B39CB9FEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DADF476A-658C-478A-9EBC-A88EC46B12B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DADF476A-658C-478A-9EBC-A88EC46B12B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DADF476A-658C-478A-9EBC-A88EC46B12B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DADF476A-658C-478A-9EBC-A88EC46B12B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15EAA622-6050-4AB8-87D2-764E5790B98F}
+	EndGlobalSection
+EndGlobal

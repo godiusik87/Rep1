@@ -1,0 +1,151 @@
+﻿<Page x:Class="DetMir.Pages.PageAddProduct"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:DetMir.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="300" d:DesignWidth="800"
+      Title="PageAddProduct">
+
+    <Grid>
+        <ScrollViewer>
+            <DockPanel LastChildFill="True">
+
+                <!-- ЛЕВАЯ колонка: подписи -->
+                <DockPanel DockPanel.Dock="Left" Background="Azure">
+                    <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top">
+
+                        <StackPanel Orientation="Horizontal" Margin="5,5,0,5">
+                            <TextBlock Text="Артикул: " Width="200" FontSize="17"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,7,0,5">
+                            <TextBlock Text="Наименование: " Width="200" FontSize="17"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Единица измерения: " Width="200" FontSize="17"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,5,0,5">
+                            <TextBlock Text="Стоимость: " Width="200" FontSize="17"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
+                            <TextBlock Text="Размер макс скидки: " Width="200" FontSize="17"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,5,0,5">
+                            <TextBlock Text="Производитель: " Width="200" FontSize="17"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Поставщик: " Width="200" FontSize="17"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Категория товара: " Width="200" FontSize="17"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Скидка: " Width="200" FontSize="17"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Количество на складе: " Width="200" FontSize="17"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Описание: " Width="200" FontSize="17"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Фото: " Width="200" FontSize="17"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </DockPanel>
+
+                <!-- ПРАВАЯ колонка: поля ввода -->
+                <DockPanel DockPanel.Dock="Right" Background="LightCyan">
+                    <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+
+                        <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                            <TextBox x:Name="articleTX" Width="550" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
+                            <TextBox x:Name="titleTX" Width="550" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                            <ComboBox x:Name="typeEdIzmCB"
+                                      SelectionChanged="EdIzmCB_SelectionChanged"
+                                      FontSize="17"
+                                      Style="{StaticResource mainCombo}">
+                                <ComboBoxItem Content="уп." HorizontalAlignment="Left"/>
+                                <ComboBoxItem Content="шт." HorizontalAlignment="Left"/>
+                            </ComboBox>
+                            <!-- скрытый Label для передачи значения unit в БД -->
+                            <Label x:Name="Lbl" Visibility="Hidden"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
+                            <TextBox x:Name="StoiMTX" Width="550" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
+                            <TextBox x:Name="MaxSkdTX" Width="550" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                            <ComboBox x:Name="comboBox2"
+                                      Style="{StaticResource mainCombo}"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                            <ComboBox x:Name="comboBox3"
+                                      Style="{StaticResource mainCombo}"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                            <ComboBox x:Name="comboBox4"
+                                      Style="{StaticResource mainCombo}"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                            <TextBox x:Name="scidTX" Width="550" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                            <TextBox x:Name="colSkladTX" Width="550" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                            <TextBox x:Name="descTX" Width="550"
+                                     TextWrapping="Wrap" FontSize="17"/>
+                        </StackPanel>
+
+                        <!-- ФОТО -->
+                        <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                            <StackPanel Orientation="Vertical">
+                                <!-- скрытое поле с полным путём к картинке -->
+                                <TextBlock x:Name="StringImage" Visibility="Hidden"
+                                           Text="{Binding Text, ElementName=mainImgName, StringFormat=../Resources/{0}}"/>
+                                <!-- предпросмотр картинки -->
+                                <Image Source="{Binding Text, ElementName=StringImage}"
+                                       Style="{StaticResource imgSource}"/>
+                                <!-- имя выбранного файла -->
+                                <TextBlock x:Name="mainImgName" Width="300"/>
+                                <Button x:Name="save1BT" Content="Добавить"
+                                        Style="{StaticResource mainbtn}"
+                                        Click="AddIMG"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <Button x:Name="saveAddBT"
+                                Style="{StaticResource mainbtn}"
+                                HorizontalAlignment="Left"
+                                Content="Сохранить"
+                                Click="saveAddBT_Click"/>
+                    </StackPanel>
+                </DockPanel>
+
+            </DockPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
